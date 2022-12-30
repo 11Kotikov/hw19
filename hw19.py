@@ -1,5 +1,6 @@
 from math import e
 from my_func import *
+from random import randint
 # Задача 1. Вычислить число c заданной точностью d
 # Пример:
 # - при $d = 0.001, π = 3.141.$    $10^{-1} ≤ d ≤10^{-10}$
@@ -41,10 +42,28 @@ from my_func import *
 # Напишите программу, которая выведет список неповторяющихся элементов 
 # исходной последовательности.
 
-size_list = int(input("Please, input quantity of elements: "))
-print ("Now, input some integer numbers, don't even\
- try to use the same ones, I'll delete it anyway  ")
-new_list = create_your_own_list(size_list)
-print (f'Your own list was: {new_list}')
-new_set = list(set(new_list))
-print (f'Now your list without the same numbers {new_set}')
+# size_list = int(input("Please, input quantity of elements: "))
+# print ("Now, input some integer numbers, don't even\
+#  try to use the same ones, I'll delete it anyway  ")
+# new_list = create_your_own_list(size_list)
+# print (f'Your own list was: {new_list}')
+# new_set = list(set(new_list))
+# print (f'Now your list without the same numbers {new_set}')
+
+# Задача 4. Задана натуральная степень k. 
+# Сформировать случайным образом список коэффициентов (значения от 0 до 100) 
+# многочлена и записать в файл многочлен степени k.
+# Пример:
+# - k=2 => 2*x² + 4*x + 5 = 0 или x² + 5 = 0 или 10*x² = 0
+
+user_input = int(input('Number, please: '))
+polynomial_list = polynominal (user_input)
+polynomial_str = ' '.join(polynomial_list)
+if len(polynomial_str)==0:
+    with open ('polynominal.txt', 'w') as add_poly:
+        add_poly.write(polynomial_str)
+    print('Your polynominal is x = 0 and I wrote it in polynominal.txt')
+else:
+    with open ('polynominal.txt', 'w') as add_poly:
+        add_poly.write(polynomial_str)    
+    print (f'Your polynominal is {polynomial_str} and I wrote it in polynominal.txt')
