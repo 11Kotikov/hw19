@@ -56,14 +56,67 @@ from random import randint
 # Пример:
 # - k=2 => 2*x² + 4*x + 5 = 0 или x² + 5 = 0 или 10*x² = 0
 
-user_input = int(input('Number, please: '))
-polynomial_list = polynominal (user_input)
-polynomial_str = ' '.join(polynomial_list)
-if len(polynomial_str)==0:
-    with open ('polynominal.txt', 'w') as add_poly:
-        add_poly.write(polynomial_str)
-    print('Your polynominal is x = 0 and I wrote it in polynominal.txt')
-else:
-    with open ('polynominal.txt', 'w') as add_poly:
-        add_poly.write(polynomial_str)    
-    print (f'Your polynominal is {polynomial_str} and I wrote it in polynominal.txt')
+# user_input = checking_number(input('Integer number > 0, please: '))
+# polynomial_list = polynominal (user_input)
+# polynomial_str = ' '.join(polynomial_list)
+# if len(polynomial_str)==0:
+#     with open ('polynominal.txt', 'w') as add_poly:
+#         add_poly.write(polynomial_str)
+#     print('Your polynominal is x = 0 and I wrote it in "polynominal.txt"')
+# else:
+#     with open ('polynominal.txt', 'w') as add_poly:
+#         add_poly.write(polynomial_str)    
+#     print (f'Your polynominal is {polynomial_str} and I wrote it in "polynominal.txt"')
+
+# Задача 5. Даны два файла, в каждом из которых находится запись многочлена. 
+# Задача - сформировать файл, содержащий сумму многочленов.
+
+# with open ('tut_mnogochlen1.txt', 'w') as chlen1:
+#     chlen1.write('5*x^3 + x^2 + 10*x + 9 = 0')
+# with open ('tut_mnogochlen2.txt', 'w') as chlen2:
+#     chlen2.write('3*x^3 + 2*x^2 + x = 0')
+
+with open ('tut_mnogochlen1.txt', 'r') as chlen_sum1:
+    a = chlen_sum1.readline()
+c = []
+# a_r = a_r[0].split('+')
+# print (a_r)
+for i in range(len(a)):
+    a_r = a[i].replace(' ','').split('=')
+    c.append(a_r)
+c = [j for i in c for j in i]    
+for i in range(len(c)):
+    if '' in c:
+        c.remove('')
+print (c)
+
+with open ('tut_mnogochlen2.txt', 'r') as chlen_sum2:
+    b = chlen_sum2.readline()
+d = []
+for i in range(len(b)):
+    b_r = b[i].replace(' ','').split('=')
+    d.append(b_r)
+d = [j for i in d for j in i]    
+for i in range(len(d)):
+    if '' in d:
+        d.remove('')
+print (d)
+
+
+
+
+exit()
+
+c = []
+i=len(a)-1
+while(i >= 0):
+    if a[i].isdigit() and b[i].isdigit:
+        x = int(a[i])
+        y = int (b[i])
+        c.append(x+y)
+        print(c)
+        i=i-1
+    else:
+        c.append(a[i])
+        print(c)
+        i=i-1
